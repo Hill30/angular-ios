@@ -35,11 +35,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 	
 	// Create server using our custom MyHTTPServer class
-	httpServer = [[HTTPServer alloc] init];
+	//httpServer = [[HTTPServer alloc] init];
 	
 	// Tell the server to broadcast its presence via Bonjour.
 	// This allows browsers such as Safari to automatically discover our service.
-	[httpServer setType:@"_http._tcp."];
+	//[httpServer setType:@"_http._tcp."];
 	
 	// Normally there's no need to run our server on any specific port.
 	// Technologies like Bonjour allow clients to dynamically discover the server's port at runtime.
@@ -51,13 +51,13 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	DDLogInfo(@"Setting document root: %@", webPath);
 	
     
-	[httpServer setDocumentRoot:webPath];
+	//[httpServer setDocumentRoot:webPath];
 
-    [self startServer];
+    //[self startServer];
     
     // Add the view controller's view to the window and display.
-    UInt16 port = [httpServer listeningPort];
-    viewController.port = port;
+    //UInt16 port = [httpServer listeningPort];
+    //viewController.port = port;
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
     

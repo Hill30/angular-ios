@@ -1,8 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface iPhoneHTTPServerViewController : UIViewController <UIWebViewDelegate> {
-}
-
+@interface iPhoneHTTPServerViewController : UIViewController
 
 @property (nonatomic) UInt16 port;
 
