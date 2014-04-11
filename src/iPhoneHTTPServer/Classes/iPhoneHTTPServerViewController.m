@@ -5,6 +5,7 @@
 @interface iPhoneHTTPServerViewController () < UIWebViewDelegate >
 @property (nonatomic, strong) NSTimer* timer;
 @property (nonatomic, strong) NSDateFormatter* df;
+@property (nonatomic, weak) UIWebView* webView;
 @end
 
 
@@ -12,14 +13,16 @@
 
 @synthesize port;
 
-UIWebView *webView;
-
 - (NSDateFormatter*)df {
     if( nil == _df ){
         _df = [[NSDateFormatter alloc] init];
         [_df setDateFormat: @"HH:mm:ss"];
     }
     return _df;
+}
+
+- (UIWebView*)webView {
+    return (UIWebView*)self.view;
 }
 
 - (NSString*)documents {
@@ -31,11 +34,8 @@ UIWebView *webView;
     return result;
 }
 
-- (void)viewDidLoad
-{
-    
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 600)];
-    webView.delegate = self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     NSLog(@"%u", port);
 
@@ -55,37 +55,11 @@ UIWebView *webView;
 
 //    NSURLRequest *req =  [NSURLRequest requestWithURL: url];
 //    [webView loadRequest: req];
-    [webView loadHTMLString: htmlContent
-                    baseURL: webURL];
+    [self.webView loadHTMLString: htmlContent
+                         baseURL: webURL];
 
     
-    [self.view addSubview:webView];
-    
-    [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    NSLog(@"%@", request);
-    
-    return YES;
-}
-
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-
-    if( YES == [self.timer isValid] ){
-        [self.timer invalidate];
-    }
-
-    @autoreleasepool {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval: 2.0f
-                                                      target: self
-                                                    selector: @selector(updateTimer:)
-                                                    userInfo: webView
-                                                     repeats: YES];
-    }
 }
 
 -(void)updateTimer:(NSTimer*)theTimer {
@@ -106,6 +80,32 @@ UIWebView *webView;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark
+#pragma mark id < UIWebViewDelegate >
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSLog(@"%@", request);
+    
+    return YES;
+}
+
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    if( YES == [self.timer isValid] ){
+        [self.timer invalidate];
+    }
+    
+    @autoreleasepool {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval: 2.0f
+                                                      target: self
+                                                    selector: @selector(updateTimer:)
+                                                    userInfo: webView
+                                                     repeats: YES];
+    }
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
