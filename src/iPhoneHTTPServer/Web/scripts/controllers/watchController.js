@@ -17,5 +17,13 @@ angular.module('application').controller('watchController', [
         $scope.time = time;
         $scope.$apply();
      }
+                                                             
+                                                             
+     $scope.getUser = function() {
+        //alert("!!!!");
+        var User = $resource('/api/v1/users/:userId', {userId:'@id'});
+        User.get({userId:123}, function(res) { $scope.response = 'ok'; });
+     
+     }
 
 }])
