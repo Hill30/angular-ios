@@ -1,4 +1,5 @@
 #import "iPhoneHTTPServerAppDelegate.h"
+#import "NSAngularURLCache.h"
 #import "iPhoneHTTPServerViewController.h"
 #import "HTTPServer.h"
 #import "DDLog.h"
@@ -30,6 +31,21 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    @autoreleasepool {
+        
+        @autoreleasepool {
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+        }
+        
+        NSString* bundlePath = [NSBundle mainBundle].resourcePath;
+        NSString* webPath = [bundlePath stringByAppendingPathComponent: @"Web"];
+        
+        NSAngularURLCache* cache = [[NSAngularURLCache alloc] initWithMemoryCapacity: ( 1 )
+                                                                        diskCapacity: ( 1 )
+                                                                            diskPath: webPath];
+        [NSURLCache setSharedURLCache: cache];
+    }
+
 	// Configure our logging framework.
 	// To keep things simple and fast, we're just going to log to the Xcode console.
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
