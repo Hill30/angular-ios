@@ -1,7 +1,53 @@
-
-<div class="watch" ng-controller='watchController'>
+<!--<div class="watch" ng-controller='watchController'>
     <div> {{time}} </div>
     <br>
     <button class="btn" ng-click="showTodo()">Show TODO</button>
-    <button class="btn" ng-click="getUser()">Get User</button>
+</div>-->
+<div class="app" ng-controller='watchController'>
+
+
+    <!--nav-wrap-->
+    <div class="nav-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#watch">Watch</a></li>
+            <li><a href="#todos">Todos</a></li>
+        </ul>
+    </div>
+    <!--/nav-wrap-->
+
+    <!--content-->
+    <div class="content">
+
+        <div class="tab-content">
+
+            <div class="tab-pane active">
+
+                <!--watch-container-->
+                <div class="watch-container">
+
+                    <!--watch-box-->
+                    <div class="box watch-box">
+
+                        <div class="box-inn">
+
+                        <div class="watch">
+                                {{time}}
+                        </div>
+
+                        </div>
+
+                    </div>
+                    <!--/watch-box-->
+
+                </div>
+                <!--/watch-container-->
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <!--/content-->
+
 </div>

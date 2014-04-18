@@ -27,7 +27,6 @@
                                                       MIMEType: @"text/html"
                                          expectedContentLength: [responceData length]
                                               textEncodingName: @"utf-8"];
-    
     /*
      * compose cache response
      */

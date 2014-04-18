@@ -69,7 +69,7 @@
     
     //NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"javascript:if (WebApi.NotificationService) WebApi.NotificationService.updateWatch(\"%@\")", date];
     //NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"WebApi.NotificationService.updateWatch(\"%@\")", date];
-    NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"testing(\"%@\")", date];
+    NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"WebApi.NotificationService.updateWatch(\"%@\")", date];
     //@"WebApi.NotificationService.updateWatch((\"%@\"))"
     //NSLog(@"%@", updateWatchFunc);
     

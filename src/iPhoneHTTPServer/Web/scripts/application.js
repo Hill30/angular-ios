@@ -33,12 +33,13 @@ angular.module('application', ['ngResource', 'ngRoute'])
 
 angular.module('application')
 .service('NotificationService', ['$rootScope', '$log', function($rootScope, $log) {
+    window.WebApi = {};
     var service = {
         updateWatch:
             function(record) {
                 $rootScope.$broadcast('updateWatch', record);
                 }
         };
-    //window.WebApi["NotificationService"] = service;
+    window.WebApi["NotificationService"] = service;
     return service;
 }]);
