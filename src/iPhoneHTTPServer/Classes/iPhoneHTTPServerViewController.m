@@ -3,9 +3,9 @@
 
 
 @interface iPhoneHTTPServerViewController () < UIWebViewDelegate >
-@property (nonatomic, strong) NSTimer* timer;
-@property (nonatomic, strong) NSDateFormatter* df;
-@property (nonatomic, weak) UIWebView* webView;
+    @property (nonatomic, strong) NSTimer* timer;
+    @property (nonatomic, strong) NSDateFormatter* df;
+    @property (nonatomic, weak) UIWebView* webView;
 @end
 
 

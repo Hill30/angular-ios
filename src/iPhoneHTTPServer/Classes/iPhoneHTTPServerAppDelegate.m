@@ -1,7 +1,7 @@
 #import "iPhoneHTTPServerAppDelegate.h"
 #import "NSAngularURLCache.h"
 #import "iPhoneHTTPServerViewController.h"
-#import "HTTPServer.h"
+//#import "HTTPServer.h"
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
@@ -19,6 +19,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // Start the server (and check for problems)
 	
 	NSError *error;
+    /*
 	if([httpServer start:&error])
 	{
 		DDLogInfo(@"Started HTTP Server on port %hu", [httpServer listeningPort]);
@@ -27,6 +28,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	{
 		DDLogError(@"Error starting HTTP Server: %@", error);
 	}
+     */
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -91,7 +93,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // So, we stop the server when the app is paused (if a users exits from the app or locks a device) and
     // restart the server when the app is resumed (based on this document: http://developer.apple.com/library/ios/#technotes/tn2277/_index.html )
     
-    [httpServer stop];
+    //[httpServer stop];
 }
 
 
