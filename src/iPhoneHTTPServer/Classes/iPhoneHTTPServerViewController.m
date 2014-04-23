@@ -79,7 +79,7 @@
     //@"WebApi.NotificationService.updateWatch((\"%@\"))"
     //NSLog(@"%@", updateWatchFunc);
     
-    [[theTimer userInfo] stringByEvaluatingJavaScriptFromString: updateWatchFunc];
+    [self.webView stringByEvaluatingJavaScriptFromString: updateWatchFunc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,6 +95,13 @@
     id userInfo = [sender userInfo];
     id url = [userInfo objectForKey: @"url"];
 
+    if ([url rangeOfString:@"new"].location != NSNotFound) {
+        NSLog(@"watch");
+        NSString *addFunc =[[NSString alloc]initWithFormat:@"WebApi.NotificationService.post(\"%@, %@ \")", url, @"aaa"];
+        [self.webView stringByEvaluatingJavaScriptFromString: addFunc];
+    }
+    
+    
     NSLog(@"url: %@", url);
 }
 
@@ -104,6 +111,7 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     NSLog(@"%@", request);
+    
     
     return YES;
 }
