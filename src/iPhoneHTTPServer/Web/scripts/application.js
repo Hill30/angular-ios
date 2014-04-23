@@ -12,7 +12,7 @@ angular.module('application', ['ngResource', 'ngRoute'])
                             if (url.substring(0, 4) == "api/")
                                 try {
                                     switch (method.toLowerCase()) {
-                                        case "post" :
+                                        case "post":
                                             callback(200, window.WebApi.post(url.substring(4), post));
                                             break;
                                         default:

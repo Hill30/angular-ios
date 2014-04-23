@@ -11,7 +11,19 @@
 @implementation NSAngularURLCache
 
 - (NSCachedURLResponse *)cachedResponseForRequest: (NSURLRequest*)request {
+    
     NSLog(@"hook: {%@}", [[request URL] absoluteString]);
+    
+    if ([[[request URL] absoluteString] rangeOfString:@"api/add/-1"].location != NSNotFound) {
+        
+        NSLog(@"adding...");
+        NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"WebApi.NotificationService.post(\"%@, %@\")", @"", @""];
+        
+        
+    }
+    
+    
+    
     
     /*
      * note:
