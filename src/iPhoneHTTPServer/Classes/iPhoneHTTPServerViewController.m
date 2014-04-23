@@ -1,4 +1,5 @@
 #import "iPhoneHTTPServerViewController.h"
+#import "NSAngularURLCache.h"
 
 
 
@@ -36,6 +37,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(onAngularNotification:)
+                                                 name: kNSAngularNotification
+                                               object: nil];
     
     NSLog(@"%u", port);
 
@@ -80,6 +86,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark
+#pragma mark /* angulat notification */
+
+- (void)onAngularNotification: (id)sender {
+    id userInfo = [sender userInfo];
+    id url = [userInfo objectForKey: @"url"];
+
+    NSLog(@"url: %@", url);
 }
 
 #pragma mark

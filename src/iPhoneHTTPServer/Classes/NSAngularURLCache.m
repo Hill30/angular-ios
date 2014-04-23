@@ -8,10 +8,21 @@
 
 #import "NSAngularURLCache.h"
 
+NSString* const kNSAngularNotification = @"angular.url.request";
+
 @implementation NSAngularURLCache
 
 - (NSCachedURLResponse *)cachedResponseForRequest: (NSURLRequest*)request {
     NSLog(@"hook: {%@}", [[request URL] absoluteString]);
+    
+    id url = [[request URL] absoluteString];
+    id userInfo = @{
+                    @"url" : url,
+                    };
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kNSAngularNotification
+                                                        object: self
+                                                      userInfo: userInfo];
     
     /*
      * note:

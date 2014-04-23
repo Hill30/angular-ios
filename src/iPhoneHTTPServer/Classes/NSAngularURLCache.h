@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSAngularURLCache : NSURLCache
+extern NSString* const kNSAngularNotification;
 
+@interface NSAngularURLCache : NSURLCache
 @end
