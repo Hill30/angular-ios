@@ -12,7 +12,7 @@ angular.module('application', ['ngResource', 'ngRoute'])
                             if (url.substring(0, 4) == "api/")
                                 try {
                                     switch (method.toLowerCase()) {
-                                        case "post" :
+                                        case "post":
                                             callback(200, window.WebApi.post(url.substring(4), post));
                                             break;
                                         default:
@@ -33,12 +33,13 @@ angular.module('application', ['ngResource', 'ngRoute'])
 
 angular.module('application')
 .service('NotificationService', ['$rootScope', '$log', function($rootScope, $log) {
+    window.WebApi = {};
     var service = {
         updateWatch:
             function(record) {
                 $rootScope.$broadcast('updateWatch', record);
                 }
         };
-    //window.WebApi["NotificationService"] = service;
+    window.WebApi["NotificationService"] = service;
     return service;
 }]);

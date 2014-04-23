@@ -1,5 +1,85 @@
-<div class="watch" ng-controller="todosController">
+<!--<div class="watch" ng-controller="todosController">
     <div ng-repeat="item in records">Hi, {{item.description}}</div>
     <br>
     <button class="btn" ng-click="showWatch()">Show Watch</button>
+</div>-->
+<div class="app" ng-controller="todosController">
+
+
+    <!--nav-wrap-->
+    <div class="nav-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="#watch">Watch</a></li>
+            <li class="active"><a href="#todos">Todos</a></li>
+        </ul>
+    </div>
+    <!--/nav-wrap-->
+
+    <!--content-->
+    <div class="content">
+
+        <div class="tab-content">
+
+
+            <div class="tab-pane active">
+
+                <div class="todos-wrap">
+
+
+                    <!--<div class="todos-add" ng-hide="records.length">
+
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="newItem.description">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="save(-1, $event)"><span class="glyphicon glyphicon-checkmark-2"></span></button>
+                            </span>
+                        </div>
+                    </div>-->
+
+                    <div class="todos-list">
+                        <ul>
+
+                            <li class="item-main" ng-hide="records.length">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="newItem.description">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" ng-click="save(-1, $event)"><span class="glyphicon glyphicon-checkmark-2"></span></button>
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li ng-repeat="item in records">           <!--ng-repeat="item in records"-->
+                                <div class="input-group" ng-click="select($index)">
+                                    <input type="text" ng-show="isSelected($index)" class="form-control" ng-model="item.description">
+                                    <div class="form-control-static" ng-hide="isSelected($index)">{{item.description}}</div>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" ng-show="isSelected($index)" type="button" ng-click="save($index, $event)"><span class="glyphicon glyphicon-checkmark-2"></span></button>
+
+                                        <button class="btn btn-default" type="button" ng-click="delete($index, $event)"><span class="glyphicon glyphicon-minus"></span></button>
+
+                                        <button class="btn btn-default" ng-hide="isSelected($index)" type="button" ng-click="add($index, $event)"><span class="glyphicon glyphicon-plus"></span></button>
+                                    </span>
+                                </div>
+                            </li>
+
+
+                        </ul>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <!--/content-->
+
 </div>

@@ -1,4 +1,10 @@
 @font-face {
+    font-family: 'digi';
+    src: url('digi.ttf');
+}
+
+/*
+@font-face {
 	font-family: 'digi';
 	src: url('digi.ttf');
 }
@@ -28,7 +34,7 @@ body {
 	font-size: 2em;
 	color: #707070;
 
-	/* Centering everything */
+
 	position: absolute;
 	left: 50%; top: 50%;
 	margin-left: -125px; margin-top: -50px;
@@ -39,3 +45,193 @@ body {
 	border-top: 5px solid #E54B6B;
 	background-image: linear-gradient(#f0f0f0, white);
 }
+*/
+
+/*nav-wrap*/
+.nav-wrap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 60px;
+    background: #fff;
+    z-index: 100;
+}
+
+.nav-wrap .nav-tabs  {
+    margin: 10px 10px 0 10px ;
+}
+
+.nav-wrap .nav-tabs > li {
+    width: 50%;
+    text-align: center;
+}
+
+.nav-wrap .nav-tabs > li a {
+    outline: none;
+    transition: all .2s linear;
+    color: gray;
+}
+
+.nav-wrap .nav-tabs > li:not(.active) a:hover {
+    background: gray;
+    color: #fff;
+    border-color: gray;
+}
+/*!nav-wrap*/
+
+/*content*/
+
+    /*watch-container*/
+    .watch-container {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        min-height: 200px;
+        overflow: auto;
+    }
+
+    .watch-container .box {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 50%;
+    }
+
+    .watch-container .box .box-inn {
+        position: absolute;
+        height: 100%;
+        left: 20px;
+        right: 20px;
+    }
+
+        /*watch*/
+        .box.watch-box {
+            top: 0;
+            border-bottom: 1px #8e8e8e dotted;
+        }
+
+        .watch {
+            height: 50px;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            margin-top: -25px;
+            font-size: 50px;
+            color: gray;
+            font-family: 'digi';
+            line-height: 1em;
+            text-align: center;
+
+        }
+        /*!watch*/
+
+        /*desc*/
+        .box.desc-box {
+            bottom: 0;
+        }
+
+        .desc {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+
+        .desc .desc-contain {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 16px;
+        }
+        /*!desc*/
+
+
+    /*!watch-container*/
+
+    /*todos*/
+    .todos-wrap .btn {
+        height: 34px;
+    }
+
+    .todos-wrap .btn .glyphicon {
+        opacity: .4;
+    }
+
+    .todos-wrap .btn:hover .glyphicon {
+        opacity: .8;
+    }
+
+        /*todos-add*/
+        .todos-add {
+            position: fixed;
+            background: #fff;
+            left: 0;
+            right: 0;
+            top: 60px;
+            height: 50px;
+            border-bottom: 1px #ddd solid;
+        }
+
+        .todos-add .input-group {
+            margin: 3px 15px 0 15px;
+        }
+        /*!todos-add*/
+
+        /*todos-list*/
+        .todos-list {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+        }
+
+        .todos-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 15px;
+        }
+
+        .todos-list ul li {
+            line-height: 1.2em;
+            padding: 4px 0 4px 10px;
+            position: relative;
+            border-bottom: 1px #cbcbcb dotted;
+        }
+
+        .todos-list ul li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 18px;
+            border: 3px transparent solid;
+            border-left-color: #a9a9a9
+        }
+
+        .todos-list ul li.item-main {
+            border-bottom: none;
+        }
+
+        .todos-list ul li.item-main:before {
+            display: none;
+        }
+
+        .todos-list .form-control-static {
+            padding: 9px 0 5px 14px;
+        }
+
+        .todos-list .input-group-btn .btn:first-child + .btn {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .todos-list .form-control-static.ng-hide + .input-group-btn .btn:first-child + .btn {
+            border-radius: 0 4px 4px 0;
+        }
+        /*!todos-list*/
+
+
+    /*!todos*/
+
+/*!content*/

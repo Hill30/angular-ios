@@ -13,6 +13,7 @@ NSString* const kNSAngularNotification = @"angular.url.request";
 @implementation NSAngularURLCache
 
 - (NSCachedURLResponse *)cachedResponseForRequest: (NSURLRequest*)request {
+    
     NSLog(@"hook: {%@}", [[request URL] absoluteString]);
     
     id url = [[request URL] absoluteString];
@@ -38,7 +39,6 @@ NSString* const kNSAngularNotification = @"angular.url.request";
                                                       MIMEType: @"text/html"
                                          expectedContentLength: [responceData length]
                                               textEncodingName: @"utf-8"];
-    
     /*
      * compose cache response
      */

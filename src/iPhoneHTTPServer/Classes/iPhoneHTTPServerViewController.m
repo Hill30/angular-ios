@@ -4,9 +4,9 @@
 
 
 @interface iPhoneHTTPServerViewController () < UIWebViewDelegate >
-@property (nonatomic, strong) NSTimer* timer;
-@property (nonatomic, strong) NSDateFormatter* df;
-@property (nonatomic, weak) UIWebView* webView;
+    @property (nonatomic, strong) NSTimer* timer;
+    @property (nonatomic, strong) NSDateFormatter* df;
+    @property (nonatomic, weak) UIWebView* webView;
 @end
 
 
@@ -75,7 +75,7 @@
     
     //NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"javascript:if (WebApi.NotificationService) WebApi.NotificationService.updateWatch(\"%@\")", date];
     //NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"WebApi.NotificationService.updateWatch(\"%@\")", date];
-    NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"testing(\"%@\")", date];
+    NSString *updateWatchFunc =[[NSString alloc]initWithFormat:@"WebApi.NotificationService.updateWatch(\"%@\")", date];
     //@"WebApi.NotificationService.updateWatch((\"%@\"))"
     //NSLog(@"%@", updateWatchFunc);
     
